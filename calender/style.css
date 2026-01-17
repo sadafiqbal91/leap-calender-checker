@@ -1,0 +1,203 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #0f172a 0%, #3b0764 100%);
+    --accent-purple: #c084fc;
+    --text-light: #f8fafc;
+    --card-glass: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(192, 132, 252, 0.2);
+    --number-bg: rgba(255, 255, 255, 0.95);
+    --number-text: #6b21a8;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #3b0764 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: var(--text-light);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #fff, var(--accent-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.custom-input-group {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-input-group input {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.25rem;
+}
+
+.custom-input-group input:focus {
+    background: transparent;
+    color: white;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 700;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.4);
+}
+
+/* Vibrant Frosted Month Cards */
+.month-card {
+    background: var(--card-glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--card-border);
+    border-radius: 2rem;
+    padding: 1rem;
+    /* Reduced padding from 1.5rem */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+    overflow: hidden;
+}
+
+.month-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(192, 132, 252, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.month-card:hover {
+    transform: scale(1.05) rotateX(5deg) rotateY(5deg);
+    border-color: rgba(192, 132, 252, 0.5);
+    box-shadow: 0 25px 50px rgba(124, 58, 237, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.month-title {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 4px;
+    /* Reduced spacing */
+    table-layout: fixed;
+    /* Ensures even column widths */
+}
+
+.calendar-table th {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--accent-purple);
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 0.75rem;
+}
+
+.calendar-table td {
+    text-align: center;
+    padding: 0.35rem;
+    font-size: 0.9rem;
+    font-weight: 800;
+    width: 36px;
+    height: 36px;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.calendar-table td:not(:empty) {
+    background: var(--number-bg);
+    color: var(--number-text);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-table td:not(:empty):hover {
+    transform: translateY(-3px) scale(1.1);
+    background: #7c3aed;
+    color: white;
+    z-index: 5;
+}
+
+.calendar-table .leap-day {
+    background: #ef4444 !important;
+    color: #fff !important;
+    border: 2px solid white;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animations */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-purple);
+    border-radius: 10px;
+}
